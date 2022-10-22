@@ -1,0 +1,59 @@
+#include<iostream>
+#define MAX 20
+using namespace std;
+class stack{
+private:
+int stk[MAX], top;
+public:
+stack() {top=-1;}
+void push(int val){
+  if(top==MAX-1){
+    cout<<"Stack is overflowed!"<<endl;
+    
+  }
+  else{
+    cout<<"Enter the value: "<<endl;
+    cin>>val;
+    top++;
+    stk[top]=val;
+  }
+}
+int pop(){
+  if(top==-1){
+    cout<<"Stack is underflowed!"<<endl;
+    
+  }
+  else{
+    return(stk[top--]);
+  }
+}
+void peek(){
+  if(top==-1){
+    cout<<"EMPYTY!!"<<endl;
+  }
+  else{
+  cout<<"Peek element is "<<stk[top]<<endl;
+    }
+}
+void display(){
+  if(top==-1){
+    cout<<"Stack is EMPTY!"<<endl;
+  }
+  else{
+    for(int i=top;i>=0;i--){
+      cout<<stk[i]<<endl;
+    }
+  }
+}
+
+};
+int main(){
+  stack obj;
+  obj.push(0);
+  obj.push(0);
+  obj.push(0);
+  obj.push(0);
+  obj.pop();
+  obj.peek();
+  obj.display();
+}
