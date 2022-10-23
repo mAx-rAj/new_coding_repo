@@ -1,0 +1,59 @@
+#include <iostream>
+#define MAX 20
+using namespace std;
+class queue{
+int qu[MAX], f, r;
+public:
+queue(){
+  f= -1;
+  r = -1;
+}
+  void enqueue(){
+  int val;
+  if(r==MAX-1){
+    cout<<"Queue is full!"<<endl;
+  }
+    else if(f==-1&&r==-1){
+    r=0;
+      f=0;
+      cout<<"Enter the value: "<<endl;
+      cin>>val;
+      qu[r] = val;
+    }
+  else{
+    r++;
+    cout<<"Enter a value: "<<endl;
+    cin>>val;
+    qu[r]=val;
+  }
+}
+  void dequeue(){
+    if(f==-1 &&r==-1){
+      cout<<"Queue is Empty!"<<endl;
+    }
+    else if(f==0 && r==0){
+      
+      r--;
+      f--;
+    }
+    else{
+      
+      f++;
+    }
+  }
+void display(){
+  for(int i = f; i<=r;i++){
+    cout<<qu[i]<<endl;
+  }
+}
+  
+};
+int main(){
+  queue obj;
+  obj.enqueue();
+  obj.enqueue();
+  obj.enqueue();
+  obj.dequeue();
+  obj.display();
+ 
+  }
